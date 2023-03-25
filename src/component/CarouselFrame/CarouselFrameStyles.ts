@@ -3,15 +3,7 @@ import styled from 'styled-components'
 export const CarouselFrameContainer = styled.div`
   position: relative;
   width: 80%;
-  height: 50vh;
-
-  .btn.left {
-    left: 20px;
-  }
-
-  .btn.right {
-    right: 20px;
-  }
+  height: 60vh;
 
   .left1,
   .left2,
@@ -104,11 +96,12 @@ export const CarouselFrameItem = styled.img`
   position: absolute;
   border-radius: 50%;
   object-fit: cover;
+  user-select: none;
   display: none;
 
   :hover {
     cursor: pointer;
-    scale: 1.5;
+    scale: 1.2;
     z-index: 10;
   }
 `

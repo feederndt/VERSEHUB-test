@@ -9,17 +9,8 @@ import InformCard from '../InformCard'
 
 import Container from '../Container'
 
-import image1 from '../../assets/img/image-1.jpg'
-import image2 from '../../assets/img/image-2.jpg'
-import image3 from '../../assets/img/image-3.jpg'
-import image4 from '../../assets/img/image-4.jpg'
-import image5 from '../../assets/img/image-5.jpg'
-import image6 from '../../assets/img/image-6.jpg'
-import image7 from '../../assets/img/image-7.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons'
-
-const dataArr = [image1, image2, image3, image4, image5, image6, image7]
 
 type Infor = {
   src: string
@@ -38,31 +29,31 @@ export default function Index({ data }: Props) {
   const ref = useRef<HTMLDivElement>(null)
 
   const plus2 = (activeIndex: number): number => {
-    if (activeIndex + 2 < dataArr.length) {
+    if (activeIndex + 2 < data.length) {
       return activeIndex + 2
     }
-    return activeIndex + 2 - dataArr.length
+    return activeIndex + 2 - data.length
   }
 
   const plus1 = (activeIndex: number): number => {
-    if (activeIndex + 1 < dataArr.length) {
+    if (activeIndex + 1 < data.length) {
       return activeIndex + 1
     }
-    return activeIndex + 1 - dataArr.length
+    return activeIndex + 1 - data.length
   }
 
   const minus1 = (activeIndex: number): number => {
     if (activeIndex - 1 >= 0) {
       return activeIndex - 1
     }
-    return dataArr.length - 1
+    return data.length - 1
   }
 
   const minus2 = (activeIndex: number): number => {
     if (activeIndex - 2 >= 0) {
       return activeIndex - 2
     }
-    return dataArr.length + activeIndex - 2
+    return data.length + activeIndex - 2
   }
 
   const posotionImage = (
@@ -98,7 +89,7 @@ export default function Index({ data }: Props) {
 
       const onEnd = (e: MouseEvent) => {
         console.log('end', e.pageX)
-        if (e.pageX) {
+        if (e.pageX && Math.abs(e.pageX - start) > 50) {
           e.pageX - start > 0
             ? setActiveIndex((e) => minus1(e))
             : setActiveIndex((e) => plus1(e))

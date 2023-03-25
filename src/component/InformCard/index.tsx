@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import { CardContainer, Text } from './InformCardStyles'
 
 type Props = {
@@ -5,11 +6,12 @@ type Props = {
   age: number
   weight: number
   isBite: boolean
+  style?: CSSProperties
 }
 
-export default function Index({ name, age, weight, isBite }: Props) {
+export default function Index({ name, age, weight, isBite, style }: Props) {
   return (
-    <CardContainer>
+    <CardContainer style={style}>
       <Text>Tên:{name}</Text>
       <Text>Tuổi:{age}</Text>
       <Text>Cân nặng:{weight}kg</Text>
