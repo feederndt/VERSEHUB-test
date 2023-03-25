@@ -5,6 +5,7 @@ export const CardContainer = styled.div`
   border-radius: 10px;
   padding: 30px 20px;
   width: 300px;
+  user-select: none;
 `
 
 export const Text = styled.p`
